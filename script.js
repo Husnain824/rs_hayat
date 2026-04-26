@@ -673,7 +673,7 @@ function initAutoScrollButtons() {
     const defaultTitle = button.title || "Auto Scroll";
 
     let active = false;
-    let intervalId = null;
+    let rafId = null;
 
     const getBaseBottom = (element, fallback) => {
       if (!element) {
@@ -688,9 +688,9 @@ function initAutoScrollButtons() {
 
     const stop = () => {
       active = false;
-      if (intervalId) {
-        window.clearInterval(intervalId);
-        intervalId = null;
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
       }
       button.classList.remove("active");
       button.textContent = defaultText;
@@ -698,18 +698,22 @@ function initAutoScrollButtons() {
     };
 
     const step = () => {
-      const currentPosition = window.pageYOffset || window.scrollY || 0;
+      if (!active) return;
+      const currentPosition = window.pageYOffset || window.scrollY || document.documentElement.scrollTop || 0;
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       if (currentPosition >= maxScroll - 2) {
         stop();
         return;
       }
-      window.scrollTo(0, currentPosition + 1.5);
+      // iOS Safari-compatible: set both scrollTop properties
+      document.documentElement.scrollTop = currentPosition + 1.5;
+      document.body.scrollTop = currentPosition + 1.5;
+      rafId = requestAnimationFrame(step);
     };
 
     const start = () => {
       active = true;
-      intervalId = window.setInterval(step, 16);
+      rafId = requestAnimationFrame(step);
       button.classList.add("active");
       button.textContent = ICON_PAUSE;
       button.title = "Stop Auto Scroll";
@@ -758,6 +762,10 @@ function initAutoScrollButtons() {
 
       if (contactButton) {
         contactButton.style.bottom = `${getBaseBottom(contactButton, 95) + contactLift + mobileContactLift}px`;
+        // Fade out contact button as footer becomes visible
+        const footerProgress = Math.max(0, Math.min(visibleFooterHeight / progressRange, 1));
+        contactButton.style.opacity = String(1 - footerProgress);
+        contactButton.style.pointerEvents = footerProgress >= 0.95 ? 'none' : '';
       }
     };
 
