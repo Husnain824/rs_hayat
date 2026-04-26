@@ -3153,7 +3153,8 @@ nav ul li a:hover::after { width: 100%; }
   z-index: 999;
   box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
   font-size: 1.7rem;
-  
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .auto-scroll-btn.visible {
@@ -3907,7 +3908,7 @@ nav ul li a:hover::after { width: 100%; }
   font-weight: 700;
   color: var(--gold);
   letter-spacing: 0.02em;
-}body.content-page.page-engagements .nav-logo span{ color: var(--text); font-weight: 400; font-size: 0.82rem; display: block; }body.content-page.page-engagements .nav-actions{ display: flex; align-items: center; gap: 12px; }body.content-page.page-engagements .back-btn, body.content-page.page-engagements .theme-btn{
+}body.content-page.page-engagements .nav-logo span{ color: var(--text-secondary); font-weight: 400; font-size: 0.82rem; display: block; line-height: 1.2; }body.content-page.page-engagements .nav-actions{ display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }body.content-page.page-engagements .back-btn, body.content-page.page-engagements .theme-btn{
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -4444,4 +4445,149 @@ body.content-page.page-achievements .footer-back {
   body.content-page.page-achievements .ach-cards-grid{grid-template-columns:1fr;}
   /* Fix 5: ach-tag visibility improvement */
   body.content-page.page-achievements .ach-tag{display:inline-flex;align-items:center;font-size:.7rem;padding:4px 10px;}
+}
+/* ── Mobile Nav Fix: engagements page ── */
+@media(max-width:600px){
+  body.content-page.page-engagements nav{padding:0 3%;height:60px;}
+  body.content-page.page-engagements .nav-logo{font-size:.95rem;}
+  body.content-page.page-engagements .nav-logo span{font-size:.65rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px;}
+  body.content-page.page-engagements .nav-actions{gap:6px;flex-wrap:nowrap;}
+  body.content-page.page-engagements .back-btn{padding:6px 10px;font-size:.75rem;}
+  body.content-page.page-engagements .theme-btn{padding:6px 10px;font-size:.75rem;}
+  body.content-page.page-engagements .gallery-hero{padding:80px 4% 50px;}
+}
+
+/* Card density and media sizing improvements */
+@media (max-width: 900px) {
+  body.content-page.page-public .pub-cards-grid,
+  body.content-page.page-public .initiative-full-grid,
+  body.content-page.page-achievements .ach-cards-grid,
+  body.content-page.page-achievements .recognition-grid,
+  body.content-page.page-engagements .eng-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  body.content-page.page-public .fe-content {
+    padding: 1.5rem 1.6rem;
+  }
+
+  body.content-page.page-engagements .eng-card {
+    padding: 1.35rem;
+  }
+
+  body.content-page.page-engagements .card-slideshow {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 600px) {
+  .achievement-card {
+    padding: 1.25rem;
+  }
+
+  .achievement-media {
+    width: calc(100% + 2.5rem);
+    margin: -1.25rem -1.25rem 1rem;
+    aspect-ratio: 4 / 3;
+  }
+
+  body.content-page.page-public .public-page {
+    padding: 2.5rem 3.5%;
+  }
+
+  body.content-page.page-public .pub-cards-grid,
+  body.content-page.page-public .initiative-full-grid,
+  body.content-page.page-achievements .ach-cards-grid,
+  body.content-page.page-achievements .recognition-grid,
+  body.content-page.page-engagements .eng-grid,
+  body.content-page.page-engagements .photo-eng-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.content-page.page-public .pub-card,
+  body.content-page.page-public .initiative-full-card,
+  body.content-page.page-achievements .ach-card,
+  body.content-page.page-achievements .recognition-card {
+    padding: 1.15rem;
+  }
+
+  body.content-page.page-public .featured-event {
+    border-radius: 16px;
+  }
+
+  body.content-page.page-public .fe-image {
+    min-height: 240px;
+  }
+
+  body.content-page.page-public .fe-content {
+    padding: 1.15rem;
+  }
+
+  body.content-page.page-public .fe-content h3 {
+    font-size: 1.15rem;
+  }
+
+  body.content-page.page-engagements .eng-section {
+    padding: 2.25rem 3.5%;
+  }
+
+  body.content-page.page-engagements .filter-bar {
+    padding: 0 3.5%;
+    gap: 0.5rem;
+  }
+
+  body.content-page.page-engagements .eng-grid {
+    gap: 1rem;
+  }
+
+  body.content-page.page-engagements .eng-card {
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  body.content-page.page-engagements .eng-card.featured {
+    gap: 1rem;
+  }
+
+  body.content-page.page-engagements .card-header {
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+
+  body.content-page.page-engagements .card-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+  }
+
+  body.content-page.page-engagements .card-title {
+    font-size: 1.05rem;
+    margin-bottom: 0.6rem;
+  }
+
+  body.content-page.page-engagements .card-desc {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 0.9rem;
+  }
+
+  body.content-page.page-engagements .card-slideshow {
+    margin-bottom: 0.85rem;
+    border-radius: 12px;
+    aspect-ratio: 5 / 4;
+  }
+
+  body.content-page.page-engagements .card-footer {
+    gap: 0.65rem;
+  }
+
+  body.content-page.page-engagements .card-link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  body.content-page.page-engagements .photo-caption {
+    padding: 0.85rem;
+  }
 }
