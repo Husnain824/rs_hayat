@@ -847,6 +847,15 @@
 
           <div class="contact-form-body">
             <form id="contactForm" action="https://formsubmit.co/15f24855598e503f79c040285cfc3192" method="POST">
+              <!-- Bot trap - bots yahan fill karte hain, real users nahi -->
+              <input type="text" name="_honey" style="display:none">
+
+              <!-- CAPTCHA enable karo -->
+              <input type="hidden" name="_captcha" value="true">
+
+              <!-- Rate limit: ek email pe 5 se zyada nahi -->
+              <input type="hidden" name="_limit" value="5">
+
               <div class="form-group">
                 <label>Your Full Name</label>
                 <input type="text" name="name" placeholder="Enter your full name" required>
@@ -858,8 +867,8 @@
               </div>
 
               <div class="form-group">
-                <label>Your Phone Number (optional)</label>
-                <input type="tel" name="phone" placeholder="Enter your phone number">
+                <label>Your Phone Number</label>
+                <input type="tel" name="phone" placeholder="Enter your phone number" required>
               </div>
 
               <div class="form-group">
