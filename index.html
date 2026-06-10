@@ -720,63 +720,194 @@
 
     <div style="display: flex; justify-content: center; margin-top: 2.5rem;">
       <div style="
-        width: 500px;
-        height: 270px;
-        border-radius: 14px;
-        border: 2px dashed rgba(212,175,55,0.5);
-        background: rgba(212,175,55,0.04);
+        width: 100%;
+        max-width: 600px;
+        border-radius: 16px;
+        border: 1.5px solid rgba(212,175,55,0.35);
+        background: linear-gradient(135deg, rgba(212,175,55,0.06) 0%, rgba(212,175,55,0.02) 100%);
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.6rem;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.15), inset 0 0 40px rgba(212,175,55,0.03);
+        gap: 1rem;
+        padding: 3rem 2rem;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 0 0 1px rgba(212,175,55,0.08);
         position: relative;
         overflow: hidden;
       ">
-        <div style="font-size: 2.2rem; opacity: 0.4;">📸</div>
-        <div style="font-size: 0.85rem; color: var(--gold); font-weight: 600; opacity: 0.7; letter-spacing: 1px;">With PM Pakistan</div>
-        <div style="font-size: 0.75rem; color: var(--text-secondary); opacity: 0.5;">500 × 270</div>
+        <!-- Decorative corner accents -->
+        <div style="position:absolute;top:12px;left:12px;width:22px;height:22px;border-top:2px solid rgba(212,175,55,0.5);border-left:2px solid rgba(212,175,55,0.5);border-radius:3px 0 0 0;"></div>
+        <div style="position:absolute;top:12px;right:12px;width:22px;height:22px;border-top:2px solid rgba(212,175,55,0.5);border-right:2px solid rgba(212,175,55,0.5);border-radius:0 3px 0 0;"></div>
+        <div style="position:absolute;bottom:12px;left:12px;width:22px;height:22px;border-bottom:2px solid rgba(212,175,55,0.5);border-left:2px solid rgba(212,175,55,0.5);border-radius:0 0 0 3px;"></div>
+        <div style="position:absolute;bottom:12px;right:12px;width:22px;height:22px;border-bottom:2px solid rgba(212,175,55,0.5);border-right:2px solid rgba(212,175,55,0.5);border-radius:0 0 3px 0;"></div>
+        <!-- Icon -->
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(212,175,55,0.1);border:1.5px solid rgba(212,175,55,0.3);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">📸</div>
+        <!-- Text -->
+        <div style="text-align:center;">
+          <div style="font-size:1.1rem;color:var(--gold);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.4rem;">Photo Coming Soon</div>
+          <div style="font-size:0.88rem;color:var(--text-secondary);opacity:0.75;line-height:1.6;">An official photograph with the Prime Minister of Pakistan<br>will be added here shortly.</div>
+        </div>
+        <!-- Badge -->
+        <div style="margin-top:0.4rem;padding:0.35rem 1.1rem;border-radius:20px;background:rgba(212,175,55,0.1);border:1px solid rgba(212,175,55,0.25);font-size:0.78rem;color:var(--gold);font-weight:600;letter-spacing:0.5px;">🇵🇰 National Leadership</div>
       </div>
     </div>
 
   </section>
 
   <!-- SPECIAL MOMENT: MEETING WITH RANA SIKANDAR HAYAT -->
+  <style>
+    #special-moment-rana .fm-card-responsive {
+      display: flex;
+      flex-direction: row;
+      gap: 2.5rem;
+      align-items: flex-start;
+      max-width: 960px;
+      margin: 0 auto;
+      background: var(--surface, rgba(255,255,255,0.03));
+      border: 1px solid rgba(212,175,55,0.18);
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    }
+    #special-moment-rana .fm-photo-wrap-r {
+      position: relative;
+      flex: 0 0 48%;
+      min-width: 0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    #special-moment-rana .fm-photo-wrap-r img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+    #special-moment-rana .fm-badge-r {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(212,175,55,0.4);
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 1.1rem;
+    }
+    #special-moment-rana .fm-info-r {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #special-moment-rana .fm-quote-r {
+      font-style: italic;
+      color: var(--gold, #d4af37);
+      font-size: 0.95rem;
+      line-height: 1.65;
+      border-left: 3px solid rgba(212,175,55,0.4);
+      padding-left: 1rem;
+    }
+    #special-moment-rana .fm-title-r {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--text);
+      margin: 0;
+    }
+    #special-moment-rana .fm-desc-r {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+    #special-moment-rana .fm-gold-r { color: var(--gold, #d4af37); font-weight: 600; }
+    #special-moment-rana .fm-tags-r {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.25rem;
+    }
+    #special-moment-rana .fm-tag-r {
+      font-size: 0.78rem;
+      color: var(--gold, #d4af37);
+      background: rgba(212,175,55,0.08);
+      border: 1px solid rgba(212,175,55,0.2);
+      border-radius: 20px;
+      padding: 0.25rem 0.75rem;
+    }
+    #special-moment-rana .slide-dots {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      margin-top: 0.6rem;
+    }
+    #special-moment-rana .slide-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(212,175,55,0.3);
+      border: none; cursor: pointer;
+      padding: 0;
+      transition: background 0.3s;
+    }
+    #special-moment-rana .slide-dot.active { background: #d4af37; }
+    @media (max-width: 700px) {
+      #special-moment-rana .fm-card-responsive {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.2rem;
+      }
+      #special-moment-rana .fm-photo-wrap-r {
+        flex: none;
+        width: 100%;
+      }
+    }
+  </style>
   <section class="public-engagement-section" id="special-moment-rana" style="background: var(--bg); padding: 70px 5% 60px;">
     <div class="section-tag reveal">📸 Special Moment</div>
     <h2 class="section-title reveal">A Meeting at the <span class="gold">Ministry</span></h2>
     <div class="section-divider reveal"></div>
 
-    <div class="footer-moments" style="background: transparent; border: none; padding: 2rem 0 0;">
-      <div class="footer-moments-inner">
-        <div class="fm-card">
-          <div class="fm-photo-wrap">
-                    <div class="feature-image-slides">
-            <img src="pics/minister-meeting-1.png" alt="Meeting with Rana Sikandar Hayat" class="fm-photo" onerror="this.style.display='none'">
-            <img src="pics/minister-meeting-2.png" alt="Meeting with Rana Sikandar Hayat" class="fm-photo" onerror="this.style.display='none'">
-            <img src="pics/minister-meeting-3.png" alt="Meeting with Rana Sikandar Hayat" class="fm-photo" onerror="this.style.display='none'">
-            <img src="pics/minister-meeting-4.png" alt="Meeting with Rana Sikandar Hayat" class="fm-photo" onerror="this.style.display='none'">
-            <img src="pics/minister-meeting-5.png" alt="Meeting with Rana Sikandar Hayat" class="fm-photo" onerror="this.style.display='none'">
-                    </div>
-            <div class="fm-photo-glow"></div>
-            <div class="fm-badge-corner">🏛️</div>
+    <div style="padding: 2rem 0 0;">
+      <div class="fm-card-responsive">
+        <div class="fm-photo-wrap-r">
+          <img src="pics/minister-meeting-1.png" alt="Meeting with Rana Sikandar Hayat" id="ministrySlideImg">
+          <div class="fm-badge-r">🏛️</div>
+          <div class="slide-dots" id="ministryDots">
+            <button class="slide-dot active" onclick="ministrySlide(0)"></button>
+            <button class="slide-dot" onclick="ministrySlide(1)"></button>
+            <button class="slide-dot" onclick="ministrySlide(2)"></button>
+            <button class="slide-dot" onclick="ministrySlide(3)"></button>
+            <button class="slide-dot" onclick="ministrySlide(4)"></button>
           </div>
-          <div class="fm-info">
-            <div class="fm-quote">"Education is the most powerful weapon which you can use to change the world."</div>
-            <h4 class="fm-title">A Meeting at the Ministry</h4>
-            <p class="fm-desc">Honored to meet <span class="fm-gold">Rana Sikandar Hayat</span> — Provincial Minister of School Education, Punjab — at his ministerial office. An inspiring conversation on the future of education in Pakistan.</p>
-            <div class="fm-meta">
-              <span class="fm-tag">🏢 Lahore, Punjab</span>
-              <span class="fm-tag">📅 2026</span>
-              <span class="fm-tag">🎓 Education Ministry</span>
-            </div>
+        </div>
+        <div class="fm-info-r">
+          <div class="fm-quote-r">"Education is the most powerful weapon which you can use to change the world."</div>
+          <h4 class="fm-title-r">A Meeting at the Ministry</h4>
+          <p class="fm-desc-r">Honored to meet <span class="fm-gold-r">Rana Sikandar Hayat</span> — Provincial Minister of School Education, Punjab — at his ministerial office. An inspiring conversation on the future of education in Pakistan.</p>
+          <div class="fm-tags-r">
+            <span class="fm-tag-r">🏢 Lahore, Punjab</span>
+            <span class="fm-tag-r">📅 2026</span>
+            <span class="fm-tag-r">🎓 Education Ministry</span>
           </div>
         </div>
       </div>
     </div>
 
   </section>
+  <script>
+    (function(){
+      var imgs = ['pics/minister-meeting-1.png','pics/minister-meeting-2.png','pics/minister-meeting-3.png','pics/minister-meeting-4.png','pics/minister-meeting-5.png'];
+      var current = 0;
+      function ministrySlide(n){
+        current = n;
+        var el = document.getElementById('ministrySlideImg');
+        if(el){ el.src = imgs[n]; }
+        var dots = document.querySelectorAll('#ministryDots .slide-dot');
+        dots.forEach(function(d,i){ d.classList.toggle('active', i===n); });
+      }
+      window.ministrySlide = ministrySlide;
+      setInterval(function(){ ministrySlide((current+1)%imgs.length); }, 3500);
+    })();
+  </script>
 
 
 
